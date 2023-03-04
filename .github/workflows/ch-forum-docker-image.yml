@@ -14,6 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - run: cd "docker/production"
     - name: Check docker-compose version
       run:  docker-compose -v
     - name: Run docker compose build  
