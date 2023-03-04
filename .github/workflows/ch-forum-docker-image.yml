@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Check docker-compose version
+      run:  docker-compose -v
+    - name: Run docker compose build  
+      run:  docker-compose build 
+    - name: show running docker
+      run:  docker-compose ps
+
